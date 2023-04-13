@@ -15,6 +15,9 @@ const Home = () => {
 
     return (
         <>
+            <div style={{textAlign:"center"}}>
+                <h1><u>React Skeleton Loader</u></h1>
+            </div>
             {loading ? (
                 Array(3)
                     .fill(0)
