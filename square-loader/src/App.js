@@ -8,13 +8,14 @@ function App() {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 5000);
-
     return () => clearTimeout(timer);
   }, []);
   return (
     <div>
       {isLoading ?
-        <SquareLoader />
+        <div className='header'>
+          <SquareLoader />
+        </div>
         :
         <div>
           <div className="card">
