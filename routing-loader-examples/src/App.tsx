@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+// Components
+import Pokemon, { pokemonLoader } from './routes/Pokemon';
+import Root, { rootLoader } from './routes/Root';
+import Error from './routes/Error';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ const App = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Root />} path='/' loader={rootLoader} errorElement={<Error />}>
+      <Route element={<Pokemon />} loader={pokemonLoader} path='pokemon/:name' />
+    </Route>
+  )
+);
+
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Root />,
+//     errorElement: <Error />,
+//     children: [
+//       {
+//         path: 'pokemon/:name',
+//         element: <Pokemon />,
+//         errorElement: <Error />
+//       }
+//     ]
+//   }
+// ]);
+
 
 export default App;
