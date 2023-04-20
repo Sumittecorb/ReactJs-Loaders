@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "../../src/App.css";
 
 const SquareLoader = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="square-loader">
+    <div className="loader">
       {isLoading ? (
-        <div className="square-loader__animation"></div>
+        <div className="box"></div>
       ) : (
         <button onClick={() => setIsLoading(true)}>Load Content</button>
       )}
