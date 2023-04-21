@@ -1,25 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import LoadingSpinner from './component';
 
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {isLoading ?
+        <LoadingSpinner />
+        :
+        <div>
+          <div className="card">
+            <div className='card-image'>
+              <img src="https://picsum.photos/300/200" alt="alt" />
+            </div>
+            <h2>lorem ipsum</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, accusamus? Minima temporibus quibusdam numquam iusto cupiditate unde asperiores nihil laborum? Tempore vel iure quibusdam eius debitis blanditiis, nisi impedit nemo.
+            </p>
+          </div>
+          <div className="card">
+            <div className='card-image'>
+              <img src="https://picsum.photos/300/200" alt="alt" />
+            </div>
+            <h2>lorem ipsum</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, accusamus? Minima temporibus quibusdam numquam iusto cupiditate unde asperiores nihil laborum? Tempore vel iure quibusdam eius debitis blanditiis, nisi impedit nemo.
+            </p>
+          </div>
+          <div className="card">
+            <div className='card-image'>
+              <img src="https://picsum.photos/300/200" alt="alt" />
+            </div>
+            <h2>lorem ipsum</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, accusamus? Minima temporibus quibusdam numquam iusto cupiditate unde asperiores nihil laborum? Tempore vel iure quibusdam eius debitis blanditiis, nisi impedit nemo.
+            </p>
+          </div>
+        </div>
+
+      }
+    </>
   );
 }
 
