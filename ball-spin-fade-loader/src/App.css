@@ -1,0 +1,22 @@
+.container{
+  position: relative
+ 
+}
+.box{
+  bottom: 50% !important;
+    position: absolute!important;
+    top: 50%!important;
+    left: 36%!important;
+    width: 415px;
+    height: 186px;
+    display: block;
+    border: 1px solid black;
+    margin-top: 180px;
+    background-color: #607d8b;
+}
+p{
+  padding: 69px 0px 0px 38px;
+  font-size: 20px;
+  text-transform: capitalize;
+
+}
